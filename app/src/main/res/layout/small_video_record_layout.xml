@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ralph.recorder.TNRecorderLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sv_recorder_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/sv_press_view"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:background="#ff000000">
+
+        <TextView
+            android:id="@+id/sv_camera_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@mipmap/ic_launcher"
+            android:text="切换摄像头"/>
+
+        <TextView
+            android:id="@+id/sv_press_btn_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:gravity="center"
+            android:text="按住拍"
+            android:textColor="@android:color/white"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:id="@+id/sv_close_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:src="@mipmap/ic_launcher" />
+
+        <com.ralph.recorder.TNProgressView
+            android:id="@+id/sv_progress_view"
+            android:layout_width="match_parent"
+            android:layout_height="2dp" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/sv_cancel_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/sv_press_view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="69dp"
+        android:gravity="center"
+        android:text="松开取消"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/sv_move_up_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/sv_press_view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:gravity="center"
+        android:text="上移取消"
+        android:textColor="@android:color/white"
+        android:visibility="gone" />
+
+
+</com.ralph.recorder.TNRecorderLayout>
