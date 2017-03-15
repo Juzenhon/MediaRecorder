@@ -13,13 +13,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Description :
- * Created by zhuxinhong on 2016/12/7.
- * Job number：135198
- * Phone ：13520295328
- * Email：zhuxinhong@syswin.com
- * Person in charge : zhuxinhong
- * Leader：zhuxinhong
+ * @author juzenhon
  */
 final class CameraUtils {
 

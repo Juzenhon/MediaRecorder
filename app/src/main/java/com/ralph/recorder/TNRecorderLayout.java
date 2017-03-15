@@ -13,16 +13,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 /**
- * Description :
- * Created by zhuxinhong on 2017/3/14.
- * Job number：135198
- * Phone ：13520295328
- * Email：zhuxinhong@syswin.com
- * Person in charge : zhuxinhong
- * Leader：zhuxinhong
+ * @author juzenhon
  */
 public class TNRecorderLayout extends RelativeLayout {
+
+    private IRecordView mIRecordView;
 
     private TNSurfaceView mSurfaceView;
 
@@ -69,7 +66,9 @@ public class TNRecorderLayout extends RelativeLayout {
         mCloseView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((Activity) getContext()).finish();
+                if(mIRecordView != null) {
+                    mIRecordView.onCloseRecord();
+                }
             }
         });
         mProgressView = (TNProgressView) findViewById(R.id.sv_progress_view);
@@ -81,6 +80,10 @@ public class TNRecorderLayout extends RelativeLayout {
             }
         });
         mProgressView.setDuration(mDuration);
+    }
+
+    public void setIRecordView(IRecordView recordView) {
+        this.mIRecordView = recordView;
     }
 
     void initRecordUIState(){
@@ -116,7 +119,10 @@ public class TNRecorderLayout extends RelativeLayout {
                     }
                 } else {
                     if (mRecorder != null) {
-                        mRecorder.end();
+                        String path = mRecorder.end();
+                        if(mIRecordView != null) {
+                            mIRecordView.onFinished(path);
+                        }
                     }
                 }
                 mProgressView.stop();

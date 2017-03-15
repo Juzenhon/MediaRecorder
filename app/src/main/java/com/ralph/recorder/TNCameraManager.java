@@ -4,13 +4,7 @@ import android.graphics.Point;
 import android.hardware.Camera;
 
 /**
- * Description :
- * Created by zhuxinhong on 2017/3/15.
- * Job number：135198
- * Phone ：13520295328
- * Email：zhuxinhong@syswin.com
- * Person in charge : zhuxinhong
- * Leader：zhuxinhong
+ * @author juzenhon
  */
 public final class TNCameraManager {
 

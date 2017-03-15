@@ -1,23 +1,19 @@
 package com.ralph.recorder;
 
 import android.Manifest;
-import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.widget.Toast;
 
+
 /**
- * Description :
- * Created by zhuxinhong on 2017/3/14.
- * Job number：135198
- * Phone ：13520295328
- * Email：zhuxinhong@syswin.com
- * Person in charge : zhuxinhong
- * Leader：zhuxinhong
+ * @author juzenhon
  */
-public class TNRecorderActivity extends Activity {
+public class TNRecorderActivity extends AppCompatActivity implements IRecordView {
 
     public static final String EXTRA_PATH = "video_path";
 
@@ -40,12 +36,13 @@ public class TNRecorderActivity extends Activity {
         PackageManager manager = getPackageManager();
         mRecorder.setOutputPath(mVideoOutputPath);
         mRecorderLayout.setRecorder(mRecorder);
+        mRecorderLayout.setIRecordView(TNRecorderActivity.this);
         int result = manager.checkPermission(Manifest.permission.CAMERA, getPackageName());
         if (result != PackageManager.PERMISSION_GRANTED) {
             if (Build.VERSION.SDK_INT > 22) {
                 requestPermissions(new String[]{Manifest.permission.CAMERA}, 1);
             } else {
-                Toast.makeText(getApplicationContext(),"相机权限被禁用", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "相机权限被禁用", Toast.LENGTH_SHORT).show();
             }
         } else {
             mRecorderLayout.prepareCameraSurface();
@@ -69,5 +66,19 @@ public class TNRecorderActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         mRecorder.cancel();
+    }
+
+    @Override
+    public void onCloseRecord() {
+        setResult(RESULT_CANCELED);
+        finish();
+    }
+
+    @Override
+    public void onFinished(String path) {
+        Intent it = new Intent();
+        it.putExtra(EXTRA_PATH, path);
+        setResult(RESULT_OK, it);
+        finish();
     }
 }

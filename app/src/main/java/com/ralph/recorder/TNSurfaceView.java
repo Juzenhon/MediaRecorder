@@ -10,16 +10,11 @@ import android.widget.Toast;
 import java.io.IOException;
 
 /**
- * Description :
- * Created by zhuxinhong on 2017/3/14.
- * Job number：135198
- * Phone ：13520295328
- * Email：zhuxinhong@syswin.com
- * Person in charge : zhuxinhong
- * Leader：zhuxinhong
+ * @author juzenhon
  */
 public class TNSurfaceView extends TextureView implements TextureView.SurfaceTextureListener {
 
+    AutoFocusManager focusManager;
     private SurfaceTexture mSurface;
 
     public TNSurfaceView(Context context) {
@@ -36,6 +31,9 @@ public class TNSurfaceView extends TextureView implements TextureView.SurfaceTex
 
         if (mSurface != null) {
             TNCameraManager.getManager().release();
+            if (focusManager != null) {
+                focusManager.stop();
+            }
             try {
                 TNCameraManager.getManager().cameraSwitch();
             } catch (Exception e) {
@@ -66,6 +64,11 @@ public class TNSurfaceView extends TextureView implements TextureView.SurfaceTex
             e.printStackTrace();
         }
         camera.startPreview();
+
+        if (focusManager == null) {
+            focusManager = new AutoFocusManager(getContext(), camera);
+        }
+        focusManager.start();
     }
 
     @Override
@@ -81,6 +84,9 @@ public class TNSurfaceView extends TextureView implements TextureView.SurfaceTex
 
     @Override
     public boolean onSurfaceTextureDestroyed(SurfaceTexture surface) {
+        if (focusManager != null) {
+            focusManager.stop();
+        }
         TNCameraManager.getManager().release();
         return true;
     }

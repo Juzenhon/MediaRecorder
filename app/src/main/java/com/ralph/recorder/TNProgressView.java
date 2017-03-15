@@ -9,13 +9,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 /**
- * Description :
- * Created by zhuxinhong on 2016/12/28.
- * Job number：135198
- * Phone ：13520295328
- * Email：zhuxinhong@syswin.com
- * Person in charge : zhuxinhong
- * Leader：zhuxinhong
+ * @author juzenhon
  */
 public class TNProgressView extends View {
 
