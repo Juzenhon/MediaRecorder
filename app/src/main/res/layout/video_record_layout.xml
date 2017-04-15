@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.systoon.toon.message.chat.utils.video.VideoRecorderLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sv_recorder_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+    <com.systoon.toon.message.chat.utils.video.VideoSurfaceView
+        android:id="@+id/surface_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:id="@+id/sv_picture_show"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitCenter"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/sv_flash_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignTop="@+id/sv_camera_switch"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="25dp"
+        android:layout_toLeftOf="@+id/sv_camera_switch"
+        android:layout_toStartOf="@+id/sv_camera_switch"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/sv_flash_open"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/sv_camera_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="25dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/sv_switch_camera" />
+
+    <TextView
+        android:id="@+id/sv_record_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/sv_press_view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="轻点拍照，长按录像"
+        android:textColor="@android:color/white"
+        android:visibility="visible" />
+
+    <RelativeLayout
+        android:id="@+id/sv_press_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="35dp"
+        android:layout_marginTop="15dp">
+
+        <ImageView
+            android:id="@+id/sv_close_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="60dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/sv_record_close" />
+
+        <com.systoon.toon.message.chat.utils.video.VideoCameraTakenView
+            android:id="@+id/sv_progress_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+
+        <ImageView
+            android:id="@+id/sv_result_retry"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="35dp"
+            android:background="@drawable/bg_translucent_white_circle"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerInside"
+            android:src="@drawable/sv_record_retry" />
+
+        <ImageView
+            android:id="@+id/sv_result_ok"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="35dp"
+            android:background="@drawable/bg_white_circle"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerInside"
+            android:src="@drawable/icon_camera_selected" />
+
+    </RelativeLayout>
+
+
+</com.systoon.toon.message.chat.utils.video.VideoRecorderLayout>

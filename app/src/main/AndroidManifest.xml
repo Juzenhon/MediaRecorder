@@ -24,6 +24,9 @@
         <activity android:name=".TNRecorderActivity">
 
         </activity>
+        <activity
+            android:name="com.ralph.recorder2.PhotoRecorderActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
